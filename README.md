@@ -4,7 +4,7 @@ This is an angular component for showing percentage. For the first version it ha
 2) with animation
 For the second mode it works with sammScroll.service which you can find here : https://github.com/AlirezaMirmahdi/sammScroll.Service
 
-##Demo
+## Demo
 http:/mirmahdi.pro/projects/sammpercentslider
 
 ## How it works
