@@ -5,7 +5,7 @@ This is an angular component for showing percentage. For the first version it ha
 For the second mode it works with sammScroll.service which you can find here : https://github.com/AlirezaMirmahdi/sammScroll.Service
 
 ## Demo
-http:/mirmahdi.pro/projects/sammpercentslider
+http://mirmahdi.pro/projects/sammpercentslider
 
 ## How it works
 The sammPercentSlider.compnent file address is : src/app/ directives/sammPercentSliderDrv/ sammPercentSlider.component.ts
