@@ -1,24 +1,45 @@
-# sammScroll.Service
-scroll service with angular
+# sammPercentSlider.compnent
+Here is the demo of this component .
+This is an angular component for showing percentage. For the first version it has  2 modes :
+1) without animation
+2) with animation
+For the second mode it works with sammScroll.service which you can find here : https://github.com/AlirezaMirmahdi/sammScroll.Service
 
-##Goal
+## How it works
+The sammPercentSlider.compnent file address is : src/app/ directives/sammPercentSliderDrv/ sammPercentSlider.component.ts
+This component needs a config object like : 
+
+``` typescript
+{
+            title : 'item1',
+            value : 75,
+            linebarColorClass : 'line-bg-color',
+            titleColorClass : 'line-title-color' ,
+            valueAnimation : false
+}
+```
+linebarColorClass is the name of the Css class which determines the color of the bar.
+titleColorClass is the name of the Css class which determines the color of the title.
 
 
-This is an angular service to trace scroll event to subscribe all elements which registered in it. With this service you have only on event listener and many elements waiting for browser to meet a special height.
+## What should you do
+The scroll.service file address is : 
+src/app/services/sammScrollSrv/sammScroll.service.ts
 
-##How it works
-Every element which needs to be subscribed in a special height can be registered in this service with setEventListener() and gets an observable object and Id (needs to remove listener). When the user scrolls, this service checks the list of heights and for every height which is reached the number will be subscribed and removed from the list.
-
-##What should you do
 Firstly, import the service in your module : 
 
 ```typescript
 import { SammScrollService } from ‘../../services/sammScrollSrv/sammScroll.service’;
+import { SammPercentSliderComponent } from '../../directives/sammPercentSliderDrv/sammPercentSlider.component';
 
 @NgModule({
     imports: [
         /* Other imports here */
       ],
+declarations: [
+        /* Other imports here */
+        SammPercentSliderComponent
+    ],
 providers: [
 /* Other imports here */
         SammScrollService
@@ -28,37 +49,33 @@ export class AppModule {
 }
 ```
 
-Then import it in your component and use AfterViewInit Interface :
+Then use it like this :
 
+In your component.ts
 ``` typescript
-import { Component, OnInit, AfterViewInit, ElementRef, Input } from '@angular/core';
-import { SammScrollService } from '../../../services/sammScrollSrv/sammScroll.service';
-.
-.
-.
-.
-export class PipeNodeComponent implements AfterViewInit {
-
-constructor(private scrollSrv : SammScrollService) { }
-
-ngAfterViewInit(): void { 
-        var pageOffset = (window.innerHeight / 20 )* 19;
-        var listenY = this.elm.nativeElement.getBoundingClientRect().top + window.pageYOffset;
-        if(listenY <= pageOffset) 
-        {
-            setTimeout(() => {
-                this.NodeCurrentState = "active"; 
-            }, 100);
-        } else {
-             this.ScrollEventInfo = this.scrollSrv.setEventListener(listenY - pageOffset);
-            this.ScrollEventInfo.eventObserver.subscribe(
-                () => { 
-                    this.NodeCurrentState = "active"; 
-                }
-            );
+linebarConfig = {
+            title : 'item1',
+            value : 75,
+            linebarColorClass : 'line-bg-color',
+            titleColorClass : 'line-title-color' ,
+            valueAnimation : false
         }
-    }
-}
+```
+In your component.html
+``` typescript
+<samm-percent-slider [config]=" linebarConfig "></samm-percent-slider>
 ```
 
-I used pageOffset variable to set the event trigger in 19/20 of the screen.
+In your component.css
+``` typescript
+:host ::ng-deep .line-bg-color{
+    background-color: firebrick;
+}
+
+:host ::ng-deep .line-title-color{
+    color: firebrick;
+}
+
+```
+
+
