@@ -1,9 +1,11 @@
 # sammPercentSlider.compnent
-Here is the demo of this component .
 This is an angular component for showing percentage. For the first version it has  2 modes :
 1) without animation
 2) with animation
 For the second mode it works with sammScroll.service which you can find here : https://github.com/AlirezaMirmahdi/sammScroll.Service
+
+##Demo
+http:/mirmahdi.pro/projects/sammpercentslider
 
 ## How it works
 The sammPercentSlider.compnent file address is : src/app/ directives/sammPercentSliderDrv/ sammPercentSlider.component.ts
