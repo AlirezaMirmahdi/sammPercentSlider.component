@@ -1,0 +1,30 @@
+﻿.menu{
+    padding: 20px;
+}
+
+.home{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+
+.linebar-block{
+    position: relative;
+/*    display: inline-block;*/
+    width: calc(100% - 50px);
+    padding: 10px;
+    float: right;
+}
+
+.linebar-item{
+    margin-top: 80px;
+}
+
+:host ::ng-deep .line-bg-color{
+    background-color: firebrick;
+}
+
+:host ::ng-deep .line-title-color{
+    color: firebrick;
+}
